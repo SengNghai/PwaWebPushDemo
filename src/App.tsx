@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import NotificationBadge from './components/NotificationBadge';
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [notificationCount, setNotificationCount] = useState(0);
+
+  const handleNotification = () => {
+    setNotificationCount(notificationCount + 1);
+  };
 
   /*
   {
@@ -51,12 +57,20 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    const storedCount = localStorage.getItem('notificationCount');
+    if (storedCount) {
+      setNotificationCount(parseInt(storedCount));
+    }
+  }, []);
+
  
 
   return (
     <>
       <header className="App-header">
         <h1>PWA 推送通知演示</h1>
+        <NotificationBadge count={notificationCount} />
         <button onClick={requestNotificationPermission}>
           启用通知
         </button>

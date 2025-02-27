@@ -1,0 +1,17 @@
+{
+    "name": "React.js PWA",
+    "short_name": "ReactPWA",
+    "description": "A Progressive Web App built with Next.js",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#fff",
+    "theme_color": "#3740ff",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "splash_pages": null
+  }
