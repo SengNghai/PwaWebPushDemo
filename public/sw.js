@@ -2,9 +2,22 @@ self.addEventListener('install', (event) => {
   console.log('[Service Worker] 正在安装服务工作线程 ...', event);
 });
 
+
 self.addEventListener('activate', (event) => {
   console.log('[Service Worker] 激活服务工作线程 ...', event);
   return self.clients.claim();
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      })
+  );
 });
 
 self.addEventListener('push', (event) => {
