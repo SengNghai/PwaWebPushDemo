@@ -70,7 +70,7 @@ function App() {
     <>
       <header className="App-header">
         <h1>PWA 推送通知演示</h1>
-        <NotificationBadge count={notificationCount} />
+        {/* <NotificationBadge count={notificationCount} /> */}
         <button onClick={requestNotificationPermission}>
           启用通知
         </button>
